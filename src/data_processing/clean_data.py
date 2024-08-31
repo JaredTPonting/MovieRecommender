@@ -13,7 +13,7 @@ def main():
     movies['budget'] = movies['budget'].replace(0, np.nan)
     movies['release_year'] = pd.to_datetime(movies['release_date'], errors='coerce').dt.year
     movies = movies.sort_values('vote_count', ascending=False).drop_duplicates(subset=['id', 'title'], keep='first')
-    movies.to_csv('../../data/preprocessing/movies_metadata.csv')
+    movies.to_csv('../../data/preprocessing/movies_metadata.csv', index=False)
 
 
 if __name__ == "__main__":
